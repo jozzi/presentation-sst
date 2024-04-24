@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css" />
+	<link rel="stylesheet" href="dist/reveal.css" />
+	<link rel="stylesheet" href="dist/theme/hotovo.css" />
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background="dist/theme/assets/webdev-meetup.png" data-background-size="100%">
+			</section>
+			<section>
+				<div style="display: flex; flex-direction: column; align-items: flex-end;">
+					<div class="t-right">
+						<h2 class="t-right">SST - AWS apps made easy</h2>
+						<h4 class="t-violet">Devops for web developers</p>
+							<h4>Jozef Radoňak</h4>
+					</div>
+
+					<img src="dist/theme/assets/hotovo-logo-white.png" style="width: 30%; margin-top: 10rem" />
+				</div>
+			</section>
+			<section>
+				<h3 class="">What is SST?</h3>
+				<p class="t-left">
+					Serverless Stack Toolkit (SST) is a framework that makes it easy to build serverless apps on AWS.
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					Serverless means you don't have to worry about managing servers, databases, or scaling.
+				</p>
+			</section>
+			<section>
+				<h3 class="">What is AWS?</h3>
+				<p class="t-left">
+					Amazon Web Services (AWS) provides on-demand cloud computing platforms and APIs on a metered
+					pay-as-you-go basis.
+				</p>
+				<p class="t-left">
+					AWS contains 200+ services.
+				</p>
+				<img src="sst/aws_logo.png" style="width: 140px; position: absolute; top: -100px; right: 10px;" />
+			</section>
+			<section>
+				<h3>How SST interacts with the AWS?</h3>
+				<p class="t-left">
+					SST uses AWS CDK (Cloud Development Kit) to define your infrastructure as code.
+				</p>
+				<img src="sst/aws_cdk_cf.png" />
+			</section>
+
+			<section>
+				<h3 class="">AWS Amplify</h3>
+				<p class="t-left">
+					AWS Amplify is a set of tools that enables mobile and web developers to build
+					full stack applications.
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					In practice quite slow and cumbersome to use for local cloud development.
+				</p>
+				<p class="t-right" style="color: green; font-size: 70%;">
+					Shall improve soon with Amplify v2 going into the same direction as the SST.
+				</p>
+			</section>
+
+			<section>
+				<h3 class="">SST Features</h3>
+				<p class="t-left">
+				<ul>
+					<li>TypeScript</li>
+					<li>CDK support</li>
+					<li>Live Development and debugging</li>
+					<li>Monitoring</li>
+					<li>Simple deployment</li>
+				</ul>
+				</p>
+			</section>
+			<section>
+				<h3 class="">Typescript</h3>
+				<p class="t-left">
+					AWS ecosystem is complex with huge amount of configuration, that is evolving constantly.
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					TypeScript provides a full typings with all the options
+					speeding up development and preventing errors.
+				</p>
+			</section>
+			<section>
+				<h3 class="">CDK Support</h3>
+				<p class="t-left">
+					CDK is a framework for defining cloud infrastructure in code and provisioning it through AWS
+					CloudFormation.
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					CDK Supports all the AWS services.
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					SST is built on top of the AWS CDK (Cloud development kit), which means you can use all the CDK
+					constructs and patterns in
+					your SST apps.
+				</p>
+			</section>
+			<section>
+				<h3 class="">SST Live Lambda</h3>
+				<p class="t-left">
+					Allows you to debug and test your Lambda functions locally, while being invoked remotely by
+					resources in AWS.
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					Works by proxying requests from your AWS account to your local machine.
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					Supports Lambda triggers as SQS, SNS and IAM Permissions. No need to mock these services.
+				</p>
+			</section>
+			<section>
+				<h3 class="">SST Local development</h3>
+				<img src="sst/sst_live_lambda.webp" class="r-stretch"></img>
+			</section>
+			<section>
+				<h3>Monitoring</h3>
+				<p class="t-left">
+					SST Console provides a real-time view of your app's resources and logs.
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					SST Console is deployed in your own AWS account and is accessible from your browser.
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">No need to use AWS CloudWatch</p>
+			</section>
+			<section>
+				<h3>Monitoring</h3>
+				<img src="sst/sst-console.png" class="r-stretch"></img>
+			</section>
+			<section>
+				<h3>Simple Deployment</h3>
+				<p class="t-left">
+					Deploy your app with a single command. SST will build your app, deploy it to AWS.
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<pre style="margin-left: 0"><code>sst deploy --stage staging</code></pre>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					You can also deploy your app to multiple environments (e.g. dev, staging, prod) or preview
+					environment for PRs.
+				</p>
+			</section>
+			<section>
+				<h3>Future of the SST</h3>
+				<p class="t-left">
+					SST ION - new engine for deploying SST app
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					Uses Terraform and Pulumi instead of CDK and CloudFormation
+				</p>
+				<p style="font-size: 1px;">&nbsp;</p>
+				<p class="t-left">
+					10x faster without the limitation of current architecture
+				</p>
+			</section>
+			<section>
+				<h3>Scaffolding project</h3>
+				<pre style="margin-left: 0;"><code>npx create-serverless-stack@latest my-sst-app</code></pre>
+				<p class="t-left">
+					Generates a new SST project with monorepo setup
+				</p>
+			</section>
+			<section>
+				<h3>Project structure</h3>
+				<ul>
+					<li>
+						<span style="background-color: grey;">stacks/ </span> - infrastructure code
+					</li>
+					<li>
+						<span style="background-color: grey;">packages/functions/</span> - lambda functions
+					</li>
+					<li>
+						<span style="background-color: grey;">packages/core/ </span> - business logic
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Static site</h3>
+				<pre data-id="code-animation">
+					<code class="hljs javascript">
+					
+						import { StaticSite } from "sst/constructs";
+
+						export function HostingStack({ stack }) {
+
+							const site = new StaticSite(stack, "Site", {
+								path: "frontend/dist",
+								customDomain: {
+									domainName: "my-app.com",
+									domainAlias: "www.my-app.com",
+								},
+							});
+
+							return { site };
+						}
+					
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>Cron Job</h3>
+				<pre data-id="code-animation">
+					<code class="hljs javascript">
+					
+						import { Cron } from "sst/constructs";
+
+						export function CronStack({ stack }) {
+
+							const cleanupCron = new Cron(stack, "cleanup", {
+								schedule: "rate(1 minute)",
+								job: "functions/cleanup.main"
+							});
+
+							return { cleanupCron };
+						};
+					
+				</code>
+				</pre>
+			</section>
+			<section>
+				<h3>Database table</h3>
+				<pre data-id="code-animation">
+					<code class="hljs javascript" data-trim data-line-numbers="5|7-10|11">
+					
+						import { Table } from "sst/constructs";
+
+						export function StorageStack({ stack }) {
+							// DynamoDB table
+							const userTable = new Table(stack, "Users", {
+								fields: {
+									id: "string",
+									name: "string",
+									email: "string",
+								},
+								primaryIndex: { partitionKey: "id", sortKey: "email" },
+							});
+
+							return {
+								userTable,
+							};
+						}
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>Lambda function</h3>
+				<pre data-id="code-animation">
+					<code class="hljs javascript" data-trim data-line-numbers="7|9-19|21-23|25-30">
+						import { aws_appsync } from "aws-cdk-lib";
+						import { Api, AppSyncApi, Function, StackContext, use } from "sst/constructs";
+
+						import { ConfigStack } from "./ConfigStack";
+
+						export function MobileStack({ stack }) {
+							const configStack = use(ConfigStack);
+
+							const appSync = new AppSyncApi(stack, "appsync-api", {
+								cdk: {
+									graphqlApi: aws_appsync.GraphqlApi.fromGraphqlApiAttributes(
+										stack,
+										"existing-mobile-api",
+										{
+											graphqlApiId: configStack.ENV.APPSYNC_ID,
+										},
+									),
+								},
+							});
+
+							const heartbeatLambda = new Function(stack, "heartbeat", {
+								handler: "packages/functions/src/heartbeat.handler",
+							});
+
+							const api = new Api(stack, "driver-api", {
+								routes: {
+									"POST /heartbeat": {
+										function: heartbeatLambda,
+									},
+								}
+							});
+
+							return { appSync };
+						}
+					
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<h3>SST Config</h3>
+				<pre>
+					<code class="hljs javascript" data-trim data-line-numbers="4|10|17-22">
+						
+							export default {
+								config() {
+									return {
+										name: "my-sst-app",
+										region: "us-east-1",
+									};
+								},
+								stacks(app) {
+									app.setDefaultFunctionProps({
+										runtime: "nodejs18.x",
+										nodejs: {
+											format: "esm",
+										},
+										architecture: "arm_64",
+									});
+
+									app
+										.stack(StorageStack)
+										.stack(HostingStack)
+										.stack(CronStack)
+										.stack(ConfigStack)
+										.stack(MobileStack);
+								},
+							}
+						
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3>Thanks for your attention</h3>
+			</section>
+			<section data-background-video="dist/theme/assets/hotovo-animation.mp4"></section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+		});
+	</script>
+</body>
+
+</html>
